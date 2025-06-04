@@ -1,139 +1,233 @@
 'use client';
 
-import { useState } from 'react';
+import Navigation from '../components/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function AboutUs() {
-  const [isMobileNavActive, setIsMobileNavActive] = useState(false);
-
-  const toggleMobileNav = () => {
-    setIsMobileNavActive(!isMobileNavActive);
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/images/jsg_logo.png" 
-              alt="JSG Partners Logo" 
-              width={50} 
-              height={80}
-              className="ml-5"
-            />
-          </Link>
-          
-          <nav className={`navbar ${isMobileNavActive ? 'mobile-nav-active' : ''} hidden md:flex`}>
-            <ul className="flex space-x-8">
-              <li><Link href="/" className="text-black hover:text-blue-600 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-black hover:text-blue-600 transition-colors font-semibold">About Us</Link></li>
-              <li><Link href="/partners" className="text-black hover:text-blue-600 transition-colors">Partners</Link></li>
-              <li><Link href="/practice-areas" className="text-black hover:text-blue-600 transition-colors">Area of Practice</Link></li>
-              <li><Link href="/careers" className="text-black hover:text-blue-600 transition-colors">Career</Link></li>
-              <li><Link href="/contact" className="text-black hover:text-blue-600 transition-colors">Contact</Link></li>
-            </ul>
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Link 
-              href="https://www.linkedin.com/in/sc-legal" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="bi bi-linkedin text-xl"></i>
-            </Link>
-            
-            <button 
-              className="md:hidden text-gray-700 text-2xl"
-              onClick={toggleMobileNav}
-            >
-              <i className={`bi ${isMobileNavActive ? 'bi-x' : 'bi-list'}`}></i>
-            </button>
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container-fluid">
+          <div className="text-center max-w-4xl mx-auto animate-fadeInUp">
+            <span className="inline-block px-6 py-2 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full mb-6">
+              About JSG Partners
+            </span>
+            <h1 className="heading-xl text-slate-800 mb-6">
+              Excellence in <span className="gradient-text">Legal Services</span>
+            </h1>
+            <p className="text-large text-slate-600 leading-relaxed">
+              JSG Partners is a full-service law firm committed to delivering exceptional legal solutions 
+              tailored to meet the diverse needs of our clients with unwavering dedication to justice.
+            </p>
           </div>
         </div>
-      </header>
-
-      {/* Mobile Navigation */}
-      {isMobileNavActive && (
-        <div className="fixed inset-0 z-40 bg-white bg-opacity-95 md:hidden">
-          <nav className="flex flex-col items-center justify-center h-full space-y-8">
-            <Link href="/" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Home</Link>
-            <Link href="/about" className="text-black text-xl hover:text-blue-600 transition-colors font-semibold" onClick={toggleMobileNav}>About Us</Link>
-            <Link href="/partners" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Partners</Link>
-            <Link href="/practice-areas" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Area of Practice</Link>
-            <Link href="/careers" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Career</Link>
-            <Link href="/contact" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Contact</Link>
-          </nav>
-        </div>
-      )}
+      </section>
 
       {/* Main Content */}
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Page Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-5xl md:text-6xl font-bold text-black mb-8">About Us</h1>
-          </div>
-
-          {/* Content */}
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <section>
-                <h2 className="text-3xl font-semibold text-black mb-6">Our Philosophy</h2>
-                <p className="text-gray-700 leading-relaxed text-lg italic mb-6">
-                  At JSG Partners, we understand that navigating the legal landscape can be complex and overwhelming. 
-                  We are dedicated to providing clear, concise, and personalized legal advice, guiding our clients 
-                  through every step of the process with empathy and understanding. We prioritize building strong 
-                  client relationships based on trust, open communication, and mutual respect. We believe in proactive 
-                  problem-solving and strive to achieve the best possible outcomes for our clients, whether through 
-                  negotiation, mediation, or litigation.
+      <section className="section-padding">
+        <div className="container-fluid">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            <div className="animate-fadeInLeft">
+              <h2 className="heading-lg text-slate-800 mb-8">
+                Our <span className="gradient-text">Story</span>
+              </h2>
+              <div className="space-y-6 text-slate-600 leading-relaxed">
+                <p>
+                  JSG Partners is built on the collective expertise and dynamic experience of our three 
+                  founding partners — Advocate Arshiya James, Advocate Parichay Sharma, and Advocate 
+                  Mohsin Ghaniwala. Together, they bring a wealth of knowledge across diverse practice 
+                  areas, ensuring comprehensive legal support for our clients.
                 </p>
-              </section>
-
-              <section>
-                <h2 className="text-3xl font-semibold text-black mb-6">Our Approach</h2>
-                <p className="text-gray-700 leading-relaxed text-lg italic mb-6">
-                  At JSG Partners, we believe in a collaborative approach. All partners are actively involved in 
-                  every case, ensuring that our clients receive the benefit of our combined expertise and strategic 
-                  thinking. We take the time to understand each client's unique circumstances and legal goals, 
-                  developing personalized strategies tailored to their specific needs. We are committed to providing 
-                  clear and timely communication, keeping our clients informed and empowered throughout the legal process.
+                <p>
+                  Our firm specializes in various areas of law, including civil litigation, banking and 
+                  financial law, corporate law, family law, criminal law, and general legal advisory 
+                  services. We pride ourselves on our client-centric approach, providing personalized 
+                  attention and strategic solutions to every case.
                 </p>
-              </section>
-
-              <section>
-                <h2 className="text-3xl font-semibold text-black mb-6">Our Commitment</h2>
-                <p className="text-gray-700 leading-relaxed text-lg italic mb-6">
-                  We are committed to providing high-quality legal representation at a reasonable cost. We believe 
-                  that everyone deserves access to justice and strive to make our services accessible to all. We are 
-                  passionate about using our legal skills to make a positive impact on our clients' lives and the community.
+                <p>
+                  At JSG Partners, we believe that every client deserves the highest quality legal 
+                  representation. Our team is dedicated to achieving the best possible outcomes while 
+                  maintaining the highest standards of professionalism and ethics.
                 </p>
-                <p className="text-gray-700 leading-relaxed text-lg italic mb-6">
-                  At JSG Partners, we don't just practice law—we build relationships. Whether you're an individual 
-                  seeking guidance or a business navigating complex legal challenges, we are here to provide the 
-                  expertise and support you need to achieve your goals.
-                </p>
-                <p className="text-gray-700 leading-relaxed text-lg italic">
-                  Contact JSG Partners today to schedule a consultation and experience the difference of working 
-                  with a firm that truly cares about your success.
-                </p>
-              </section>
+              </div>
+            </div>
+            <div className="relative animate-fadeInRight">
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white glass-effect">
+                <h3 className="text-2xl font-bold mb-6">Why Choose Us</h3>
+                <div className="space-y-4">
+                  {[
+                    'Experienced legal professionals',
+                    'Comprehensive practice areas',
+                    'Client-focused approach',
+                    'Strategic legal solutions',
+                    'Proven track record',
+                    '24/7 legal support'
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                        <i className="fas fa-check text-white text-sm"></i>
+                      </div>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
 
-      {/* Scroll to Top Button */}
-      <Link 
-        href="#" 
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
-      >
-        <i className="bi bi-arrow-up-short text-xl"></i>
-      </Link>
+          {/* Team Section */}
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="heading-lg text-slate-800 mb-6">
+              Meet Our <span className="gradient-text">Partners</span>
+            </h2>
+            <p className="text-large text-slate-600 max-w-3xl mx-auto">
+              Our founding partners bring together decades of combined experience and expertise 
+              across multiple practice areas
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Advocate Arshiya James',
+                image: '/images/ArshiyaProfile.jpg',
+                specialization: 'Corporate Law & Civil Litigation'
+              },
+              {
+                name: 'Advocate Parichay Sharma',
+                image: '/images/ParichayProfile.png',
+                specialization: 'Banking Law & Financial Services'
+              },
+              {
+                name: 'Advocate Mohsin Ghaniwala',
+                image: '/images/MohsinProfile.jpg',
+                specialization: 'Criminal Law & Family Law'
+              }
+            ].map((partner, index) => (
+              <div key={index} className="card hover-lift text-center p-8 group animate-fadeInUp" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-2xl">
+                  <Image
+                    src={partner.image}
+                    alt={partner.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">{partner.name}</h3>
+                <p className="text-slate-600">{partner.specialization}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container-fluid">
+          <div className="max-w-4xl mx-auto text-center mb-16 animate-fadeInUp">
+            <h2 className="heading-lg text-slate-800 mb-8">
+              Our <span className="gradient-text">Philosophy</span>
+            </h2>
+            <p className="text-large text-slate-600 leading-relaxed italic">
+              At JSG Partners, we understand that navigating the legal landscape can be complex and overwhelming. 
+              We are dedicated to providing clear, concise, and personalized legal advice, guiding our clients 
+              through every step of the process with empathy and understanding.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Our Approach',
+                content: 'We believe in a collaborative approach where all partners are actively involved in every case, ensuring that our clients receive the benefit of our combined expertise and strategic thinking.'
+              },
+              {
+                title: 'Our Commitment',
+                content: 'We are committed to providing high-quality legal representation at a reasonable cost. We believe that everyone deserves access to justice and strive to make our services accessible to all.'
+              },
+              {
+                title: 'Our Promise',
+                content: 'At JSG Partners, we don\'t just practice law—we build relationships. Whether you\'re an individual or business, we provide the expertise and support you need to achieve your goals.'
+              }
+            ].map((item, index) => (
+              <div key={index} className="card p-8 text-center animate-fadeInUp" style={{animationDelay: `${index * 0.2}s`}}>
+                <h3 className="text-xl font-semibold text-slate-800 mb-4">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="section-padding bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+        <div className="container-fluid">
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="heading-lg mb-6">
+              Our <span className="gradient-text-secondary">Core Values</span>
+            </h2>
+            <p className="text-large text-white/80 max-w-3xl mx-auto">
+              The principles that guide our practice and define our commitment to excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: 'fas fa-balance-scale',
+                title: 'Justice',
+                description: 'Unwavering commitment to fairness and legal excellence'
+              },
+              {
+                icon: 'fas fa-shield-alt',
+                title: 'Integrity',
+                description: 'Maintaining the highest ethical standards in all our practices'
+              },
+              {
+                icon: 'fas fa-lightbulb',
+                title: 'Innovation',
+                description: 'Modern legal solutions for contemporary challenges'
+              },
+              {
+                icon: 'fas fa-heart',
+                title: 'Compassion',
+                description: 'Understanding and empathetic approach to client needs'
+              }
+            ].map((value, index) => (
+              <div key={index} className="text-center animate-fadeInUp" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300">
+                  <i className={`${value.icon} text-2xl text-blue-400`}></i>
+                </div>
+                <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
+                <p className="text-white/80 leading-relaxed">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="section-padding-sm bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container-fluid text-center animate-fadeInUp">
+          <h2 className="heading-md mb-6">Ready to Work With Us?</h2>
+          <p className="text-large mb-8 max-w-2xl mx-auto">
+            Get in touch with our experienced legal team for a consultation 
+            tailored to your specific needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-secondary bg-white text-blue-600 hover:bg-blue-50">
+              Contact Us Today
+            </Link>
+            <Link href="/practice-areas" className="btn-secondary border-white text-white hover:bg-white hover:text-blue-600">
+              View Our Services
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

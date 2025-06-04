@@ -2,268 +2,247 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Navigation from '../components/Navigation';
+import { 
+  AcademicCapIcon, 
+  UsersIcon, 
+  BriefcaseIcon, 
+  TrophyIcon,
+  EnvelopeIcon,
+  ChatBubbleLeftRightIcon,
+  ArrowUpIcon
+} from '@heroicons/react/24/outline';
 
 export default function Careers() {
-  const [isMobileNavActive, setIsMobileNavActive] = useState(false);
-
-  const toggleMobileNav = () => {
-    setIsMobileNavActive(!isMobileNavActive);
-  };
-
   const benefits = [
     {
-      icon: "bi-mortarboard",
+      icon: AcademicCapIcon,
       title: "Professional Development",
       description: "Continuous learning opportunities and skill enhancement programs"
     },
     {
-      icon: "bi-people",
+      icon: UsersIcon,
       title: "Collaborative Environment",
       description: "Work with experienced professionals in a supportive team environment"
     },
     {
-      icon: "bi-briefcase",
+      icon: BriefcaseIcon,
       title: "Diverse Practice Areas",
       description: "Exposure to various legal domains and complex cases"
     },
     {
-      icon: "bi-award",
+      icon: TrophyIcon,
       title: "Recognition & Growth",
       description: "Merit-based advancement and recognition for outstanding performance"
     }
   ];
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/images/jsg_logo.png" 
-              alt="JSG Partners Logo" 
-              width={50} 
-              height={80}
-              className="ml-5"
-            />
-          </Link>
-          
-          <nav className={`navbar ${isMobileNavActive ? 'mobile-nav-active' : ''} hidden md:flex`}>
-            <ul className="flex space-x-8">
-              <li><Link href="/" className="text-black hover:text-blue-600 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-black hover:text-blue-600 transition-colors">About Us</Link></li>
-              <li><Link href="/partners" className="text-black hover:text-blue-600 transition-colors">Partners</Link></li>
-              <li><Link href="/practice-areas" className="text-black hover:text-blue-600 transition-colors">Area of Practice</Link></li>
-              <li><Link href="/careers" className="text-black hover:text-blue-600 transition-colors font-semibold">Career</Link></li>
-              <li><Link href="/contact" className="text-black hover:text-blue-600 transition-colors">Contact</Link></li>
-            </ul>
-          </nav>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <Navigation />
 
-          <div className="flex items-center space-x-4">
-            <Link 
-              href="https://www.linkedin.com/in/sc-legal" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="bi bi-linkedin text-xl"></i>
-            </Link>
-            
-            <button 
-              className="md:hidden text-gray-700 text-2xl"
-              onClick={toggleMobileNav}
-            >
-              <i className={`bi ${isMobileNavActive ? 'bi-x' : 'bi-list'}`}></i>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation */}
-      {isMobileNavActive && (
-        <div className="fixed inset-0 z-40 bg-white bg-opacity-95 md:hidden">
-          <nav className="flex flex-col items-center justify-center h-full space-y-8">
-            <Link href="/" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Home</Link>
-            <Link href="/about" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>About Us</Link>
-            <Link href="/partners" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Partners</Link>
-            <Link href="/practice-areas" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Area of Practice</Link>
-            <Link href="/careers" className="text-black text-xl hover:text-blue-600 transition-colors font-semibold" onClick={toggleMobileNav}>Career</Link>
-            <Link href="/contact" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Contact</Link>
-          </nav>
-        </div>
-      )}
+      {/* Floating Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-indigo-200/30 to-cyan-200/30 rounded-full blur-3xl animate-pulse"></div>
+      </div>
 
       {/* Main Content */}
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Page Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-black mb-8">Career</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Join our dynamic team of legal professionals and build a rewarding career 
-              in one of Mumbai's most respected law firms.
+      <main className="relative pt-24 pb-16">
+        <div className="container-fluid max-w-7xl mx-auto px-4">
+          {/* Hero Section */}
+          <div className="text-center mb-20 animate-fadeInUp">
+            <h1 className="heading-xl gradient-text mb-8">Join Our Legal Excellence</h1>
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
+              Build a rewarding career with Mumbai's most respected law firm. Join our dynamic team 
+              of legal professionals and shape the future of law.
             </p>
-          </div>
-
-          {/* Why Join Us Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-black mb-6">Why Join JSG Partners?</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <div className="flex justify-center space-x-2 mb-8">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-100"></div>
+              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse delay-200"></div>
+            </div>
+          </div>          {/* Why Join Us Section */}
+          <div className="mb-24 animate-fadeInUp delay-200">
+            <div className="text-center mb-16">
+              <h2 className="heading-lg text-gray-900 mb-6">Why Choose JSG Partners?</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We believe in nurturing talent and providing opportunities for growth in a 
-                collaborative and professional environment.
+                collaborative and innovative professional environment.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className={`${benefit.icon} text-2xl text-white`}></i>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div key={index} className="card group hover:scale-105 transition-all duration-300 animate-fadeInUp" style={{animationDelay: `${300 + index * 100}ms`}}>
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">{benefit.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-black mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
-          </div>
-
-          {/* Current Openings */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-black mb-6">Current Openings</h2>
-              <p className="text-lg text-gray-600">
-                We are always looking for talented individuals to join our team.
+          </div>          {/* Current Openings */}
+          <div className="mb-24 animate-fadeInUp delay-300">
+            <div className="text-center mb-16">
+              <h2 className="heading-lg text-gray-900 mb-6">Current Opportunities</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                We are always looking for talented individuals to join our team and contribute to our legacy of legal excellence.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div className="max-w-5xl mx-auto space-y-8">
               {/* Job Opening 1 */}
-              <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-semibold text-black mb-2 md:mb-0">Associate Lawyer</h3>
-                  <span className="text-blue-600 font-medium">Full Time</span>
+              <div className="card hover:scale-[1.02] transition-all duration-300 border-l-4 border-l-blue-500 animate-fadeInLeft delay-400">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Associate Lawyer</h3>
+                    <div className="flex items-center space-x-4">                      <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                        <BriefcaseIcon className="w-4 h-4 mr-2" />Full Time
+                      </span>
+                      <span className="text-gray-500">Mumbai</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 lg:mt-0">
+                    <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">₹8-12 LPA</span>
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   We are seeking a motivated Associate Lawyer with 2-5 years of experience in 
                   civil litigation and corporate law. The ideal candidate should have strong 
-                  research and writing skills.
+                  research and writing skills with excellent client interaction abilities.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Civil Litigation</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Corporate Law</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Legal Research</span>
-                </div>
-                <Link 
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-sm rounded-full border border-blue-200">Civil Litigation</span>
+                  <span className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-sm rounded-full border border-blue-200">Corporate Law</span>
+                  <span className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-sm rounded-full border border-blue-200">Legal Research</span>
+                </div>                <Link 
                   href="mailto:careers@jsgpartners.in?subject=Application for Associate Lawyer Position"
-                  className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="btn-primary inline-flex items-center"
                 >
-                  Apply Now
+                  <EnvelopeIcon className="w-5 h-5 mr-2" />Apply Now
                 </Link>
               </div>
 
               {/* Job Opening 2 */}
-              <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-semibold text-black mb-2 md:mb-0">Legal Intern</h3>
-                  <span className="text-green-600 font-medium">Internship</span>
+              <div className="card hover:scale-[1.02] transition-all duration-300 border-l-4 border-l-green-500 animate-fadeInRight delay-500">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Legal Intern</h3>
+                    <div className="flex items-center space-x-4">                      <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                        <AcademicCapIcon className="w-4 h-4 mr-2" />Internship
+                      </span>
+                      <span className="text-gray-500">Mumbai</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 lg:mt-0">
+                    <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">₹15-25K/month</span>
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   Internship opportunities for law students in their final year. Gain practical 
                   experience in various areas of law including civil litigation, corporate law, 
-                  and legal documentation.
+                  and legal documentation with hands-on mentorship.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Legal Drafting</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Court Procedures</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Client Interaction</span>
-                </div>
-                <Link 
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span className="px-4 py-2 bg-gradient-to-r from-green-50 to-teal-50 text-green-700 text-sm rounded-full border border-green-200">Legal Drafting</span>
+                  <span className="px-4 py-2 bg-gradient-to-r from-green-50 to-teal-50 text-green-700 text-sm rounded-full border border-green-200">Court Procedures</span>
+                  <span className="px-4 py-2 bg-gradient-to-r from-green-50 to-teal-50 text-green-700 text-sm rounded-full border border-green-200">Client Interaction</span>
+                </div>                <Link 
                   href="mailto:careers@jsgpartners.in?subject=Application for Legal Intern Position"
-                  className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="btn-primary inline-flex items-center"
                 >
-                  Apply Now
+                  <EnvelopeIcon className="w-5 h-5 mr-2" />Apply Now
                 </Link>
               </div>
             </div>
-          </div>
-
-          {/* Application Process */}
-          <div className="bg-gray-50 rounded-lg p-12 mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-black mb-6">Application Process</h2>
-              <p className="text-lg text-gray-600">
-                Follow these simple steps to apply for a position at JSG Partners.
+          </div>          {/* Application Process */}
+          <div className="glass-effect rounded-3xl p-12 mb-24 animate-fadeInUp delay-600">
+            <div className="text-center mb-16">
+              <h2 className="heading-lg text-gray-900 mb-6">Application Process</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Follow these simple steps to begin your journey with JSG Partners and become part of our legal excellence.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">1</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="text-center group">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-xl">
+                    <span className="text-3xl font-bold text-white">1</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-pulse"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-black mb-3">Submit Application</h3>
-                <p className="text-gray-600">
-                  Send your resume and cover letter to our careers email address.
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Submit Application</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Send your comprehensive resume and personalized cover letter to our careers email address.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">2</span>
+              <div className="text-center group">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-xl">
+                    <span className="text-3xl font-bold text-white">2</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-pulse delay-100"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-black mb-3">Initial Review</h3>
-                <p className="text-gray-600">
-                  Our team will review your application and contact qualified candidates.
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Initial Review</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Our experienced team will thoroughly review your application and contact qualified candidates.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">3</span>
+              <div className="text-center group">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-xl">
+                    <span className="text-3xl font-bold text-white">3</span>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-pulse delay-200"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-black mb-3">Interview Process</h3>
-                <p className="text-gray-600">
-                  Successful candidates will be invited for an interview with our partners.
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Interview Process</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Successful candidates will be invited for a comprehensive interview with our partners.
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Contact for Careers */}
-          <div className="text-center bg-white rounded-lg shadow-lg p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-black mb-6">Ready to Start Your Career with Us?</h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Don't see a position that matches your skills? We're always interested in 
-              hearing from talented legal professionals. Send us your resume and we'll 
-              keep you in mind for future opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="mailto:careers@jsgpartners.in"
-                className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Send Your Resume
-              </Link>
-              <Link 
-                href="/contact"
-                className="inline-block bg-gray-100 text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
-              >
-                Contact Us
-              </Link>
+          </div>          {/* Contact for Careers */}
+          <div className="card max-w-5xl mx-auto text-center animate-fadeInUp delay-700">
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10"></div>
+              <div className="relative">
+                <h2 className="heading-lg gradient-text mb-6">Ready to Start Your Legal Journey?</h2>
+                <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-4xl mx-auto">
+                  Don't see a position that matches your expertise? We're always interested in 
+                  hearing from talented legal professionals. Send us your resume and we'll 
+                  keep you in mind for future opportunities.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">                  <Link 
+                    href="mailto:careers@jsgpartners.in"
+                    className="btn-primary inline-flex items-center justify-center text-lg px-10 py-4"
+                  >
+                    <EnvelopeIcon className="w-6 h-6 mr-3" />Send Your Resume
+                  </Link>
+                  <Link 
+                    href="/contact"
+                    className="btn-secondary inline-flex items-center justify-center text-lg px-10 py-4"
+                  >
+                    <ChatBubbleLeftRightIcon className="w-6 h-6 mr-3" />Get In Touch
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
 
-      {/* Scroll to Top Button */}
-      <Link 
-        href="#" 
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
+      {/* Scroll to Top Button */}      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center group"
       >
-        <i className="bi bi-arrow-up-short text-xl"></i>
-      </Link>
+        <ArrowUpIcon className="w-6 h-6 group-hover:animate-bounce" />
+      </button>
     </div>
   );
 }

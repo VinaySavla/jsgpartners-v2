@@ -31,7 +31,7 @@ A modern, responsive website for JSG Partners, a full-service law firm in Mumbai
 - **Framework**: Next.js 15.3.3
 - **Styling**: Tailwind CSS
 - **Font**: Poppins (Google Fonts)
-- **Icons**: Bootstrap Icons & Font Awesome
+- **Icons**: Heroicons (Tailwind CSS compatible)
 - **Deployment**: Vercel-ready
 
 ## Getting Started

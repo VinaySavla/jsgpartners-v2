@@ -13,19 +13,18 @@ export const metadata = {
   keywords: "law firm, legal services, civil litigation, corporate law, banking law, family law, criminal law, Mumbai lawyers",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#2563eb',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <link 
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" 
-          rel="stylesheet" 
-        />
-        <link 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
-          rel="stylesheet" 
-        />
       </head>
       <body
         className={`${poppins.variable} antialiased font-sans`}

@@ -1,206 +1,252 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import Navigation from '../components/Navigation';
 
 export default function Partners() {
-  const [isMobileNavActive, setIsMobileNavActive] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
-  const toggleMobileNav = () => {
-    setIsMobileNavActive(!isMobileNavActive);
-  };
-
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const partners = [
     {
-      name: "Advocate Arshiya James",
-      img: "/images/ArshiyaProfile.jpg",
-      designation: "Founding Partner",
-      description: "Specializes in Civil Litigation and Corporate Law with over 10 years of experience in handling complex legal matters.",
-      expertise: ["Civil Litigation", "Corporate Law", "Contract Law", "Property Law"],
-      email: "arshiya@jsgpartners.in",
-      linkedin: "https://www.linkedin.com/in/arshiya-james"
-    },
-    {
-      name: "Advocate Parichay Sharma",
-        img: "/images/ParichayProfile.png", 
-      designation: "Founding Partner",
-      description: "Expert in Banking & Financial Law and Criminal Law with extensive experience in financial litigation and regulatory matters.",
-      expertise: ["Banking Law", "Financial Law", "Criminal Law", "Regulatory Compliance"],
+      name: "Parichay Sharma",
+      title: "Founding Partner",
+      experience: "10+ Years",
+      specialization: "Banking Dispute Resolution, Securities Law, Criminal Law, Company Law",
+      education: "LL.B., LL.M. specialized in Banking & Corporate Law",
+      image: "/images/ParichayProfile.png",
+      bio: "Mr. Parichay Sharma is a skilled and results-driven advocate with proven experience in litigation and banking dispute resolution. He possesses a diverse legal background encompassing securities law, criminal law, company law, and white-collar crime, giving him a well-rounded perspective on complex legal challenges.",
+      achievements: [
+        "Managing legal portfolios for American Express Banking Corp, Axis Bank, and Standard Chartered Bank",
+        "Expert in banking disputes including loan recovery, fraud, and regulatory compliance",
+        "Comprehensive case strategy development with proven track record of favorable outcomes"
+      ],
       email: "parichay@jsgpartners.in",
-      linkedin: "https://www.linkedin.com/in/parichay-sharma"
+      phone: "+91 86554 15028"
     },
     {
-      name: "Advocate Mohsin Ghaniwala",
-        img: "/images/MohsinProfile.jpg",
-      designation: "Founding Partner", 
-      description: "Specializes in Family Law and General Legal Advisory with a focus on matrimonial disputes and legal consultancy.",
-      expertise: ["Family Law", "Matrimonial Law", "Legal Advisory", "Mediation"],
+      name: "Mohsin Ghaniwala",
+      title: "Founding Partner",
+      experience: "8+ Years",
+      specialization: "Criminal Law, Civil Litigation, Corporate Matters",
+      education: "LL.B. with specialization in Criminal & Civil Law",
+      image: "/images/MohsinProfile.jpg",
+      bio: "Mr. Mohsin Ghaniwala is a dynamic and driven first-generation lawyer, carving a niche for himself in the legal arena with his expertise in Criminal Law, Civil Litigation, and General Corporate Matters, including drafting and negotiating agreements. Known for his sharp legal acumen and client-centric approach.",
+      achievements: [
+        "Successfully represented clients in complex criminal cases",
+        "Expert in civil litigation from property conflicts to contractual disagreements",
+        "Specializes in drafting, reviewing, and negotiating corporate agreements"
+      ],
       email: "mohsin@jsgpartners.in",
-      linkedin: "https://www.linkedin.com/in/mohsin-ghaniwala"
+      phone: "+91 86554 15028"
+    },
+    {
+      name: "Arshiya James",
+      title: "Founding Partner",
+      experience: "6+ Years",
+      specialization: "Family Law, Civil Law, Criminal Law",
+      education: "LL.B. with specialization in Family & Civil Law",
+      image: "/images/ArshiyaProfile.jpg",
+      bio: "Ms. Arshiya James is a dedicated and dynamic advocate specializing in Family Law, Civil Law and Criminal Law. As a first-generation lawyer, Ms. James brings a unique blend of fresh perspective and innovation to her work with a strong commitment to serving her clients with empathy and diligence.",
+      achievements: [
+        "Building strong client relationships based on trust and open communication",
+        "Expert in navigating sensitive family matters and civil disputes",
+        "Committed to making legal processes accessible and understandable for clients"
+      ],
+      email: "arshiya@jsgpartners.in",
+      phone: "+91 86554 15028"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/images/jsg_logo.png" 
-              alt="JSG Partners Logo" 
-              width={50} 
-              height={80}
-              className="ml-5"
-            />
-          </Link>
-          
-          <nav className={`navbar ${isMobileNavActive ? 'mobile-nav-active' : ''} hidden md:flex`}>
-            <ul className="flex space-x-8">
-              <li><Link href="/" className="text-black hover:text-blue-600 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-black hover:text-blue-600 transition-colors">About Us</Link></li>
-              <li><Link href="/partners" className="text-black hover:text-blue-600 transition-colors font-semibold">Partners</Link></li>
-              <li><Link href="/practice-areas" className="text-black hover:text-blue-600 transition-colors">Area of Practice</Link></li>
-              <li><Link href="/careers" className="text-black hover:text-blue-600 transition-colors">Career</Link></li>
-              <li><Link href="/contact" className="text-black hover:text-blue-600 transition-colors">Contact</Link></li>
-            </ul>
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Link 
-              href="https://www.linkedin.com/in/sc-legal" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="bi bi-linkedin text-xl"></i>
-            </Link>
-            
-            <button 
-              className="md:hidden text-gray-700 text-2xl"
-              onClick={toggleMobileNav}
-            >
-              <i className={`bi ${isMobileNavActive ? 'bi-x' : 'bi-list'}`}></i>
-            </button>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6 animate-fadeInUp">
+            Our Partners
+          </h1>          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp animation-delay-200 px-4">
+            Meet the founding partners of JSG Partners. Our team combines diverse expertise in banking law, 
+            criminal law, civil litigation, family law, and corporate matters to deliver comprehensive legal solutions 
+            for our clients.
+          </p>
         </div>
-      </header>
+      </section>
 
-      {/* Mobile Navigation */}
-      {isMobileNavActive && (
-        <div className="fixed inset-0 z-40 bg-white bg-opacity-95 md:hidden">
-          <nav className="flex flex-col items-center justify-center h-full space-y-8">
-            <Link href="/" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Home</Link>
-            <Link href="/about" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>About Us</Link>
-            <Link href="/partners" className="text-black text-xl hover:text-blue-600 transition-colors font-semibold" onClick={toggleMobileNav}>Partners</Link>
-            <Link href="/practice-areas" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Area of Practice</Link>
-            <Link href="/careers" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Career</Link>
-            <Link href="/contact" className="text-black text-xl hover:text-blue-600 transition-colors" onClick={toggleMobileNav}>Contact</Link>
-          </nav>
-        </div>
-      )}
-
-      {/* Main Content */}
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Page Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-black mb-8">Our Partners</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Meet the experienced legal professionals who form the backbone of JSG Partners. 
-              Our founding partners bring together decades of combined experience and expertise 
-              across various areas of law.
-            </p>
-          </div>
-
-          {/* Partners Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 max-w-7xl mx-auto">
+      {/* Partners Grid */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:gap-12">
             {partners.map((partner, index) => (
               <div 
-                key={index}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100"
-              >
-                {/* Partner Image Placeholder */}
-                <div className="h-64 bg-gradient-to-br from-blue-100 to-slate-200 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center">
-                    {/* <i className="bi bi-person text-6xl text-gray-500"></i> */}
-                    <Image src={`${partner.img}`} alt={`${partner.name} Image`} width={128} height={128} className="rounded-full object-cover" />
-                  </div>
-                </div>
-                
-                {/* Partner Info */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-black mb-2">{partner.name}</h3>
-                  <p className="text-blue-600 font-semibold mb-4">{partner.designation}</p>
-                  <p className="text-gray-700 leading-relaxed mb-6">{partner.description}</p>
-                  
-                  {/* Expertise */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-black mb-3">Areas of Expertise:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {partner.expertise.map((skill, skillIndex) => (
-                        <span 
-                          key={skillIndex}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                        >
-                          {skill}
+                key={partner.name}
+                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 animate-fadeInUp ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
+                style={{ animationDelay: `${index * 200}ms` }}
+              >                {/* Partner Image */}
+                <div className="flex-shrink-0 w-full lg:w-auto flex justify-center">
+                  <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      src={partner.image} 
+                      alt={partner.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 items-center justify-center hidden">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <span className="text-2xl sm:text-4xl font-bold text-blue-600">
+                          {partner.name.split(' ').map(n => n[0]).join('')}
                         </span>
-                      ))}
+                      </div>
                     </div>
                   </div>
+                </div>
+
+                {/* Partner Info */}
+                <div className="flex-1 text-center lg:text-left px-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    {partner.name}
+                  </h2>
+                  <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-4">
+                    {partner.title}
+                  </p>
                   
-                  {/* Contact Links */}
-                  <div className="flex space-x-4">
-                    <Link 
-                      href={`mailto:${partner.email}`}
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
-                      title="Email"
-                    >
-                      <i className="bi bi-envelope text-xl"></i>
-                    </Link>
-                    <Link 
-                      href={partner.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
-                      title="LinkedIn"
-                    >
-                      <i className="bi bi-linkedin text-xl"></i>
-                    </Link>
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-4 mb-4 sm:mb-6">
+                    <span className="px-3 sm:px-4 py-1 sm:py-2 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
+                      {partner.experience}
+                    </span>
+                    <span className="px-3 sm:px-4 py-1 sm:py-2 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm font-medium">
+                      {partner.specialization}
+                    </span>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed max-w-2xl">
+                    {partner.bio}
+                  </p>                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Education:</h4>
+                    <p className="text-sm sm:text-base text-gray-600">{partner.education}</p>
+                  </div>
+
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Contact:</h4>
+                    <div className="space-y-2">
+                      <p className="text-sm sm:text-base text-gray-600">
+                        <span className="font-medium">Email:</span> 
+                        <a href={`mailto:${partner.email}`} className="text-blue-600 hover:text-blue-800 ml-2">
+                          {partner.email}
+                        </a>
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        <span className="font-medium">Phone:</span> 
+                        <a href={`tel:${partner.phone}`} className="text-blue-600 hover:text-blue-800 ml-2">
+                          {partner.phone}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Key Achievements:</h4>
+                    <ul className="space-y-2">
+                      {partner.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-sm sm:text-base text-gray-600">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <div className="bg-slate-50 rounded-lg p-12 max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-black mb-6">Ready to Work with Our Team?</h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Our partners are committed to providing exceptional legal representation 
-                and personalized attention to every client. Contact us today to discuss 
-                how we can help with your legal needs.
-              </p>
-              <Link 
-                href="/contact"
-                className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 animate-fadeInUp">
+            Our Collective Impact
+          </h2>          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {[
+              { number: "24+", label: "Years Combined Experience" },
+              { number: "200+", label: "Cases Successfully Handled" },
+              { number: "50+", label: "Banking & Corporate Clients" },
+              { number: "95%", label: "Client Satisfaction Rate" }
+            ].map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="text-center animate-fadeInUp"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                Get in Touch
-              </Link>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-blue-100 text-sm sm:text-base lg:text-lg">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 animate-fadeInUp">
+            Ready to Work with Our Expert Team?
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 animate-fadeInUp animation-delay-200 px-4">
+            Contact us today to discuss how our experienced partners can help with your legal needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animation-delay-400">
+            <button className="btn-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+              Schedule Consultation
+            </button>
+            <button className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-4 mb-4 md:mb-0">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <span className="text-xl font-bold text-white">JSG</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">JSG Partners</h3>
+                <p className="text-gray-400 text-sm">Excellence in Legal Services</p>
+              </div>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-gray-400 text-sm">
+                © 2024 JSG Partners. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
-      </main>
-
-      {/* Scroll to Top Button */}
-      <Link 
-        href="#" 
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
-      >
-        <i className="bi bi-arrow-up-short text-xl"></i>
-      </Link>
+      </footer>
     </div>
   );
 }
