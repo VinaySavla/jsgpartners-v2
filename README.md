@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JSG Partners - Law Firm Website
+
+A modern, responsive website for JSG Partners, a full-service law firm in Mumbai, India. Built with Next.js 15 and Tailwind CSS.
+
+## Features
+
+- **Modern Design**: Clean, professional design with responsive layout
+- **Next.js 15**: Latest version with App Router and Turbopack
+- **Tailwind CSS**: Utility-first CSS framework for rapid styling
+- **Responsive**: Mobile-first design that works on all devices
+- **SEO Optimized**: Proper meta tags, sitemap, and robots.txt
+- **Interactive Elements**: 
+  - Typewriter animation on homepage
+  - Disclaimer modal
+  - Mobile navigation
+  - Contact forms
+  - Google Maps integration
+- **Accessibility**: WCAG compliant with proper focus states and semantic HTML
+
+## Pages
+
+1. **Home** (`/`) - Hero section with typewriter animation and company overview
+2. **About Us** (`/about`) - Company philosophy, approach, and commitment
+3. **Partners** (`/partners`) - Information about the three founding partners
+4. **Practice Areas** (`/practice-areas`) - Six main areas of legal practice
+5. **Careers** (`/careers`) - Job openings and benefits
+6. **Contact** (`/contact`) - Contact form, office locations, and Google Maps
+
+## Tech Stack
+
+- **Framework**: Next.js 15.3.3
+- **Styling**: Tailwind CSS
+- **Font**: Poppins (Google Fonts)
+- **Icons**: Bootstrap Icons & Font Awesome
+- **Deployment**: Vercel-ready
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd jsg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+jsg/
+├── app/
+│   ├── components/
+│   │   ├── Navigation.js
+│   │   └── Footer.js
+│   ├── about/
+│   │   └── page.js
+│   ├── careers/
+│   │   └── page.js
+│   ├── contact/
+│   │   └── page.js
+│   ├── partners/
+│   │   └── page.js
+│   ├── practice-areas/
+│   │   └── page.js
+│   ├── globals.css
+│   ├── layout.js
+│   └── page.js
+├── public/
+│   ├── images/
+│   ├── robots.txt
+│   └── sitemap.xml
+└── package.json
+```
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 JSG Partners. All Rights Reserved.
